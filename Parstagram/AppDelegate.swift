@@ -7,15 +7,31 @@
 //
 
 import UIKit
+import FBSDKCoreKit
+import Parse
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+//    var storyboard : UIStoryboard?;
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        Parse.initializeWithConfiguration(
+            ParseClientConfiguration(block: { (configuration:ParseMutableClientConfiguration) -> Void in
+                configuration.applicationId = "Parstagram"
+                configuration.clientKey = "9fgn2n3jnkq2f9dfnr4mnsdi99"  // set to nil assuming you have not set clientKey
+                configuration.server = "https://pure-mesa-65291.herokuapp.com/parse"
+            })
+        )
+        
+//        self.storyboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle());
+        if PFUser.currentUser() != nil {
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            self.window?.rootViewController = storyboard.instantiateViewControllerWithIdentifier("HomeViewController") 
+        }
         return true
     }
 
@@ -40,7 +56,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
-
 }
 
