@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 class HomeViewController: UIViewController {
 
@@ -21,6 +22,11 @@ class HomeViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func logoutButton(sender: AnyObject) {
+        PFUser.logOut()
+        self.performSegueWithIdentifier("logoutSegue", sender: self)
+//        self.navigationController?.setNavigationBarHidden(self.navigationController?.navigationBarHidden == false, animated: true)
+    }
 
     /*
     // MARK: - Navigation
