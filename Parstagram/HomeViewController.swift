@@ -13,8 +13,7 @@ class HomeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -27,7 +26,10 @@ class HomeViewController: UIViewController {
         self.performSegueWithIdentifier("logoutSegue", sender: self)
 //        self.navigationController?.setNavigationBarHidden(self.navigationController?.navigationBarHidden == false, animated: true)
     }
-
+    
+    @IBAction func uploadButton(sender: AnyObject) {
+        self.performSegueWithIdentifier("uploadSegue", sender: self)
+    }
     /*
     // MARK: - Navigation
 

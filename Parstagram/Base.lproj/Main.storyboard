@@ -67,20 +67,28 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mca-um-bGC">
-                                <rect key="frame" x="307" y="87" width="48" height="30"/>
-                                <state key="normal" title="Logout"/>
-                                <connections>
-                                    <action selector="logoutButton:" destination="Wjd-5z-HnZ" eventType="touchUpInside" id="NGR-Xj-z91"/>
-                                    <segue destination="BYZ-38-t0r" kind="modal" identifier="logoutSegue" id="0Tp-zo-oaT"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="HELLO" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IvX-Nb-2z7">
                                 <rect key="frame" x="161" y="156" width="53" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xvZ-tM-0nb">
+                                <rect key="frame" x="159" y="265" width="50" height="30"/>
+                                <state key="normal" title="Upload"/>
+                                <connections>
+                                    <action selector="uploadButton:" destination="Wjd-5z-HnZ" eventType="touchUpInside" id="AKW-LG-5Qs"/>
+                                    <segue destination="Uz2-8l-UpQ" kind="modal" identifier="uploadSegue" id="34S-w0-VOc"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mca-um-bGC">
+                                <rect key="frame" x="307" y="80" width="48" height="30"/>
+                                <state key="normal" title="Logout"/>
+                                <connections>
+                                    <action selector="logoutButton:" destination="Wjd-5z-HnZ" eventType="touchUpInside" id="NGR-Xj-z91"/>
+                                    <segue destination="BYZ-38-t0r" kind="modal" identifier="logoutSegue" id="0Tp-zo-oaT"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -90,6 +98,54 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0hk-y2-x3h" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="777.5" y="1253.5"/>
+        </scene>
+        <!--Upload View Controller-->
+        <scene sceneID="Lc0-KR-J0A">
+            <objects>
+                <viewController id="Uz2-8l-UpQ" customClass="UploadViewController" customModule="Parstagram" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="xSH-Ud-BCS"/>
+                        <viewControllerLayoutGuide type="bottom" id="7R1-vv-iAb"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="HE6-nf-hAv">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lfF-OM-WKX">
+                                <rect key="frame" x="0.0" y="64" width="375" height="369"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="acB-R5-We6">
+                                <rect key="frame" x="162" y="566" width="48" height="30"/>
+                                <state key="normal" title="Library"/>
+                                <connections>
+                                    <action selector="libraryButton:" destination="Uz2-8l-UpQ" eventType="touchUpInside" id="HJX-hV-f0H"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="auI-Jn-vA7">
+                                <rect key="frame" x="162" y="617" width="50" height="30"/>
+                                <state key="normal" title="Upload"/>
+                                <connections>
+                                    <action selector="uploadButton:" destination="Uz2-8l-UpQ" eventType="touchUpInside" id="mlj-JT-DkK"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XNo-Ax-7rV">
+                                <rect key="frame" x="0.0" y="441" width="375" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="sza-Dn-aTT"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="captionField" destination="XNo-Ax-7rV" id="1Tf-67-cfq"/>
+                        <outlet property="imageView" destination="lfF-OM-WKX" id="K09-Us-J83"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x6Z-eJ-Few" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1204.5" y="1253.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="FaT-zA-Hox">
