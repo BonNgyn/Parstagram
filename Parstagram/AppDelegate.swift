@@ -22,8 +22,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Parse.initializeWithConfiguration(
             ParseClientConfiguration(block: { (configuration:ParseMutableClientConfiguration) -> Void in
                 configuration.applicationId = "Parstagram"
-                configuration.clientKey = "9fgn2n3jnkq2f9dfnr4mnsdi99"  // set to nil assuming you have not set clientKey
-                configuration.server = "https://pure-mesa-65291.herokuapp.com/parse"
+                configuration.clientKey = "sdhufe8he8fhaejbv93nsidjfi3eafdefab4t4"  // set to nil assuming you have not set clientKey
+                configuration.server = "https://limitless-castle-72926.herokuapp.com/parse"
             })
         )
         
