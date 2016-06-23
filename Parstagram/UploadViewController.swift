@@ -8,6 +8,7 @@
 
 import UIKit
 import Parse
+import ParseUI
 
 class UploadViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
@@ -49,50 +50,31 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
     }
     
     @IBAction func uploadButton(sender: AnyObject) {
-        let imageText = captionField.text
-        
-        if imageView.image == nil {
-            print("Please Select and Image")
-        }else {
-            
-            let posts = PFObject(className: "Posts")
-            posts["imageText"] = imageText
-            posts["uploader"] = PFUser.currentUser()
-            posts.saveInBackgroundWithBlock({
-                (success: Bool, error: NSError?) -> Void in
-                if error == nil {
-                    
-                    //create an image data
-                    let imageData = UIImagePNGRepresentation(self.imageView.image!)
-                    //create a parse file to store in cloud
-                    let parseImageFile = PFFile(name: "uploaded_image.png", data: imageData!)
-                    posts["imageFile"] = parseImageFile
-                    posts.saveInBackgroundWithBlock({
-                        (success: Bool, error: NSError?) -> Void in
-                        
-                        if error == nil {
-                            //take user home
-                            print("data uploaded")
-                            self.performSegueWithIdentifier("goHomeSegueFromUpload", sender: self)
-                            
-                        }else {
-                            
-                            print(error?.localizedDescription)
-                        }
-                    })
-                }else {
-                    print(error?.localizedDescription)
-                }
-            })
+        Post.postUserImage(self.imageView.image!, withCaption: captionField.text) { (success: Bool, error: NSError?) in
+            print("data uploaded")
+            self.performSegueWithIdentifier("homeNaviController", sender: self)
         }
     }
     
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
-        imageView.image = image
+    func getPFFileFromImage(image: UIImage?) -> PFFile? {
+        // check if image is not nil
+        if let image = image {
+            // get image data and check if that is not nil
+            if let imageData = UIImagePNGRepresentation(image) {
+                return PFFile(name: "image.png", data: imageData)
+            }
+        }
+        return nil
+    }
+    
+    func imagePickerController(picker: UIImagePickerController,didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+        // Get the image captured by the UIImagePickerController
+        let originalImage = info[UIImagePickerControllerOriginalImage] as! UIImage
+        imageView.image = originalImage
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
-        /*
+    /*
      // MARK: - Navigation
      
      // In a storyboard-based application, you will often want to do a little preparation before navigation

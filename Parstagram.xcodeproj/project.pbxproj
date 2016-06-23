@@ -12,6 +12,8 @@
 		610EAB0B1D18906500150871 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 610EAB091D18906500150871 /* Main.storyboard */; };
 		610EAB0D1D18906500150871 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 610EAB0C1D18906500150871 /* Assets.xcassets */; };
 		610EAB101D18906500150871 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 610EAB0E1D18906500150871 /* LaunchScreen.storyboard */; };
+		6162C74F1D1C955100575759 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6162C74E1D1C955100575759 /* Post.swift */; };
+		6162C7511D1C971400575759 /* parseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6162C7501D1C971400575759 /* parseCell.swift */; };
 		616947781D1894C3008CA6B4 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 616947771D1894C3008CA6B4 /* LoginViewController.swift */; };
 		6169477A1D18A73A008CA6B4 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 616947791D18A73A008CA6B4 /* HomeViewController.swift */; };
 		61D2B4ED1D1B4574002C3706 /* UploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D2B4EC1D1B4574002C3706 /* UploadViewController.swift */; };
@@ -30,6 +32,8 @@
 		610EAB0C1D18906500150871 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		610EAB0F1D18906500150871 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		610EAB111D18906500150871 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6162C74E1D1C955100575759 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		6162C7501D1C971400575759 /* parseCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = parseCell.swift; sourceTree = "<group>"; };
 		616947771D1894C3008CA6B4 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		616947791D18A73A008CA6B4 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		61D2B4EC1D1B4574002C3706 /* UploadViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UploadViewController.swift; sourceTree = "<group>"; };
@@ -85,6 +89,8 @@
 				610EAB0C1D18906500150871 /* Assets.xcassets */,
 				610EAB0E1D18906500150871 /* LaunchScreen.storyboard */,
 				610EAB111D18906500150871 /* Info.plist */,
+				6162C74E1D1C955100575759 /* Post.swift */,
+				6162C7501D1C971400575759 /* parseCell.swift */,
 			);
 			path = Parstagram;
 			sourceTree = "<group>";
@@ -241,8 +247,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				616947781D1894C3008CA6B4 /* LoginViewController.swift in Sources */,
+				6162C7511D1C971400575759 /* parseCell.swift in Sources */,
 				61D2B4ED1D1B4574002C3706 /* UploadViewController.swift in Sources */,
 				610EAB081D18906500150871 /* ViewController.swift in Sources */,
+				6162C74F1D1C955100575759 /* Post.swift in Sources */,
 				610EAB061D18906500150871 /* AppDelegate.swift in Sources */,
 				6169477A1D18A73A008CA6B4 /* HomeViewController.swift in Sources */,
 			);

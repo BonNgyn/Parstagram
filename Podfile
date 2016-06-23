@@ -8,4 +8,5 @@ target 'Parstagram' do
   # Pods for Parstagram
     pod 'Parse'
     pod 'FBSDKCoreKit'
+    pod 'ParseUI'
 end
