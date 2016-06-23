@@ -8,7 +8,7 @@
 
 import UIKit
 import Parse
-    
+
 class UploadViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     @IBOutlet weak var imageView: UIImageView!
@@ -40,57 +40,56 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
     }
     
     
-    
-//    @IBAction func uploadButton(sender: AnyObject) {
-//        let imageText = captionField.text
-//        
-//        if imageView.image == nil {
-//            //image is not included alert user
-//            print("Image not uploaded")
-//        }else {
-//            
-//            let posts = PFObject(className: "Posts")
-//            posts["imageText"] = imageText
-//            posts["uploader"] = PFUser.currentUser()
-//            posts.saveInBackgroundWithBlock({
-//                (success: Bool, error: NSError?) -> Void in
-//                
-//                if error == nil {
-//                    /**success saving, Now save image.***/
-//                    
-//                    //create an image data
-//                    let imageData = UIImagePNGRepresentation(self.imageView.image!)
-//                    //create a parse file to store in cloud
-//                    let parseImageFile = PFFile(name: "uploaded_image.png", data: imageData!)
-//                    posts["imageFile"] = parseImageFile
-//                    posts.saveInBackgroundWithBlock({
-//                        (success: Bool, error: NSError?) -> Void in
-//                        
-//                        if error == nil {
-//                            //take user home
-//                            print("data uploaded")
-//                            self.performSegueWithIdentifier("goHomeFromUpload", sender: self)
-//                            
-//                        }else {
-//                            
-//                            print(error)
-//                        }
-//                        
-//                        
-//                    })
-//                    
-//                    
-//                }else {
-//                    print(error)
-//                    
-//                }
-//                
-//            })
-//            
-//            
-//        }
-//        
-//    }
+    @IBAction func uploadButton(sender: AnyObject) {
+        let imageText = captionField.text
+        
+        if imageView.image == nil {
+            //image is not included alert user
+            print("Image not uploaded")
+        }else {
+            
+            let posts = PFObject(className: "Posts")
+            posts["imageText"] = imageText
+            posts["uploader"] = PFUser.currentUser()
+            posts.saveInBackgroundWithBlock({
+                (success: Bool, error: NSError?) -> Void in
+                
+                if error == nil {
+                    /**success saving, Now save image.***/
+                    
+                    //create an image data
+                    let imageData = UIImagePNGRepresentation(self.imageView.image!)
+                    //create a parse file to store in cloud
+                    let parseImageFile = PFFile(name: "uploaded_image.png", data: imageData!)
+                    posts["imageFile"] = parseImageFile
+                    posts.saveInBackgroundWithBlock({
+                        (success: Bool, error: NSError?) -> Void in
+                        
+                        if error == nil {
+                            //take user home
+                            print("data uploaded")
+                            self.performSegueWithIdentifier("goHomeFromUpload", sender: self)
+                            
+                        }else {
+                            
+                            print(error)
+                        }
+                        
+                        
+                    })
+                    
+                    
+                }else {
+                    print(error)
+                    
+                }
+                
+            })
+            
+            
+        }
+        
+    }
     /*
      // MARK: - Navigation
      

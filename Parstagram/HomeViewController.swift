@@ -24,7 +24,7 @@ class HomeViewController: UIViewController {
     @IBAction func logoutButton(sender: AnyObject) {
         PFUser.logOut()
         self.performSegueWithIdentifier("logoutSegue", sender: self)
-//        self.navigationController?.setNavigationBarHidden(self.navigationController?.navigationBarHidden == false, animated: true)
+        self.navigationController?.setNavigationBarHidden(self.navigationController?.navigationBarHidden == false, animated: true)
     }
     
     @IBAction func uploadButton(sender: AnyObject) {
