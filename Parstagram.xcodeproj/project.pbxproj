@@ -15,6 +15,7 @@
 		616947781D1894C3008CA6B4 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 616947771D1894C3008CA6B4 /* LoginViewController.swift */; };
 		6169477A1D18A73A008CA6B4 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 616947791D18A73A008CA6B4 /* HomeViewController.swift */; };
 		61D2B4ED1D1B4574002C3706 /* UploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D2B4EC1D1B4574002C3706 /* UploadViewController.swift */; };
+		61D2B4F91D1BD8A1002C3706 /* default-placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 61D2B4F81D1BD8A1002C3706 /* default-placeholder.png */; };
 		752F3979989FD5894F7DC535 /* Pods_Parstagram.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 031507D6F82663930DE6850B /* Pods_Parstagram.framework */; };
 /* End PBXBuildFile section */
 
@@ -32,6 +33,7 @@
 		616947771D1894C3008CA6B4 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		616947791D18A73A008CA6B4 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		61D2B4EC1D1B4574002C3706 /* UploadViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UploadViewController.swift; sourceTree = "<group>"; };
+		61D2B4F81D1BD8A1002C3706 /* default-placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "default-placeholder.png"; path = "../../../../../Desktop/default-placeholder.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +78,7 @@
 		610EAB041D18906500150871 /* Parstagram */ = {
 			isa = PBXGroup;
 			children = (
+				61D2B4F71D1BD868002C3706 /* Images */,
 				6169477B1D18A73D008CA6B4 /* Controllers */,
 				610EAB051D18906500150871 /* AppDelegate.swift */,
 				610EAB091D18906500150871 /* Main.storyboard */,
@@ -95,6 +98,14 @@
 				61D2B4EC1D1B4574002C3706 /* UploadViewController.swift */,
 			);
 			name = Controllers;
+			sourceTree = "<group>";
+		};
+		61D2B4F71D1BD868002C3706 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				61D2B4F81D1BD8A1002C3706 /* default-placeholder.png */,
+			);
+			name = Images;
 			sourceTree = "<group>";
 		};
 		9F8824DF0F740BD233D90E16 /* Frameworks */ = {
@@ -170,6 +181,7 @@
 				610EAB101D18906500150871 /* LaunchScreen.storyboard in Resources */,
 				610EAB0D1D18906500150871 /* Assets.xcassets in Resources */,
 				610EAB0B1D18906500150871 /* Main.storyboard in Resources */,
+				61D2B4F91D1BD8A1002C3706 /* default-placeholder.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
