@@ -55,7 +55,7 @@
             </objects>
             <point key="canvasLocation" x="236.5" y="401.5"/>
         </scene>
-        <!--Home View Controller-->
+        <!--Parstagram-->
         <scene sceneID="sxc-YT-cRR">
             <objects>
                 <viewController storyboardIdentifier="HomeViewController" id="Wjd-5z-HnZ" customClass="HomeViewController" customModule="Parstagram" customModuleProvider="target" sceneMemberID="viewController">
@@ -66,38 +66,31 @@
                     <view key="view" contentMode="scaleToFill" id="0Ke-m4-iqd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="HELLO" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IvX-Nb-2z7">
-                                <rect key="frame" x="161" y="156" width="53" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xvZ-tM-0nb">
-                                <rect key="frame" x="159" y="265" width="50" height="30"/>
-                                <state key="normal" title="Upload"/>
-                                <connections>
-                                    <action selector="uploadButton:" destination="Wjd-5z-HnZ" eventType="touchUpInside" id="AKW-LG-5Qs"/>
-                                    <segue destination="Uz2-8l-UpQ" kind="modal" identifier="uploadSegue" id="34S-w0-VOc"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mca-um-bGC">
-                                <rect key="frame" x="307" y="80" width="48" height="30"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Parstagram" id="CG1-xO-hxl">
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="Nos-T1-gXL">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Mca-um-bGC">
+                                <rect key="frame" x="16" y="7" width="48" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Logout"/>
                                 <connections>
                                     <action selector="logoutButton:" destination="Wjd-5z-HnZ" eventType="touchUpInside" id="NGR-Xj-z91"/>
                                     <segue destination="BYZ-38-t0r" kind="modal" identifier="logoutSegue" id="0Tp-zo-oaT"/>
                                 </connections>
                             </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="CG1-xO-hxl"/>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="s7k-N7-lXB">
+                            <connections>
+                                <segue destination="Uz2-8l-UpQ" kind="modal" identifier="uploadSegue" id="dcr-ZH-CuI"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0hk-y2-x3h" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="777.5" y="1253.5"/>
+            <point key="canvasLocation" x="670.5" y="1253.5"/>
         </scene>
         <!--Upload View Controller-->
         <scene sceneID="Lc0-KR-J0A">
@@ -111,29 +104,63 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="default-placeholder.png" translatesAutoresizingMaskIntoConstraints="NO" id="lfF-OM-WKX">
-                                <rect key="frame" x="0.0" y="64" width="375" height="369"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="acB-R5-We6">
-                                <rect key="frame" x="162" y="566" width="48" height="30"/>
-                                <state key="normal" title="Library"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="auI-Jn-vA7">
+                                <rect key="frame" x="252" y="619" width="123" height="48"/>
+                                <color key="backgroundColor" red="0.35571416884816753" green="0.35571416884816753" blue="0.35571416884816753" alpha="0.68999999999999995" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="Upload">
+                                    <color key="titleColor" red="1" green="0.98568317240000003" blue="0.95135776780000003" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
-                                    <action selector="libraryButton:" destination="Uz2-8l-UpQ" eventType="touchUpInside" id="HJX-hV-f0H"/>
+                                    <action selector="uploadButton:" destination="Uz2-8l-UpQ" eventType="touchUpInside" id="Bnh-2g-ujI"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="auI-Jn-vA7">
-                                <rect key="frame" x="162" y="617" width="50" height="30"/>
-                                <state key="normal" title="Upload"/>
-                                <connections>
-                                    <action selector="uploadButton:" destination="Uz2-8l-UpQ" eventType="touchUpInside" id="aZD-b5-T2q"/>
-                                </connections>
-                            </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XNo-Ax-7rV">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Write a caption..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XNo-Ax-7rV">
                                 <rect key="frame" x="0.0" y="441" width="375" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="acB-R5-We6">
+                                <rect key="frame" x="0.0" y="619" width="123" height="48"/>
+                                <color key="backgroundColor" red="0.3668193717277487" green="0.3668193717277487" blue="0.3668193717277487" alpha="0.68600398936170215" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="Library">
+                                    <color key="titleColor" red="1" green="0.98568317240000003" blue="0.95135776780000003" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="libraryButton:" destination="Uz2-8l-UpQ" eventType="touchUpInside" id="HJX-hV-f0H"/>
+                                </connections>
+                            </button>
+                            <button contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="97F-Q4-W8T">
+                                <rect key="frame" x="123" y="619" width="129" height="48"/>
+                                <color key="backgroundColor" red="0.36681937170000001" green="0.36681937170000001" blue="0.36681937170000001" alpha="0.68600398939999996" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="Camera">
+                                    <color key="titleColor" red="1" green="0.98568317240000003" blue="0.95135776780000003" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="cameraButton:" destination="Uz2-8l-UpQ" eventType="touchUpInside" id="buv-uf-QAt"/>
+                                    <action selector="libraryButton:" destination="Uz2-8l-UpQ" eventType="touchUpInside" id="Ocs-bH-ktS"/>
+                                </connections>
+                            </button>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WD6-jc-PR4">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <items>
+                                    <navigationItem id="9V8-kP-arA">
+                                        <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="d1u-tB-oad">
+                                            <connections>
+                                                <segue destination="Wjd-5z-HnZ" kind="modal" identifier="goHomeSegueFromUpload" id="vu7-UR-2mi"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="default-placeholder.png" translatesAutoresizingMaskIntoConstraints="NO" id="lfF-OM-WKX">
+                                <rect key="frame" x="0.0" y="64" width="375" height="369"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -142,11 +169,12 @@
                     <connections>
                         <outlet property="captionField" destination="XNo-Ax-7rV" id="1Tf-67-cfq"/>
                         <outlet property="imageView" destination="lfF-OM-WKX" id="K09-Us-J83"/>
+                        <segue destination="Wjd-5z-HnZ" kind="modal" identifier="goHomeSegueFromUpload" id="SbN-I0-7S6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x6Z-eJ-Few" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1204.5" y="1253.5"/>
+            <point key="canvasLocation" x="1098.5" y="1253.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="FaT-zA-Hox">
@@ -170,4 +198,7 @@
     <resources>
         <image name="default-placeholder.png" width="1500" height="1500"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="SbN-I0-7S6"/>
+    </inferredMetricsTieBreakers>
 </document>

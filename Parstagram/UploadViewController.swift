@@ -25,9 +25,18 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
         // Dispose of any resources that can be recreated.
     }
     
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!) {
-        imageView.image = image
-        self.dismissViewControllerAnimated(true, completion: nil)
+    //    func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!) {
+    //        imageView.image = image
+    //        self.dismissViewControllerAnimated(true, completion: nil)
+    //    }
+    @IBAction func cameraButton(sender: AnyObject) {
+        let vc = UIImagePickerController()
+        vc.delegate = self
+        vc.allowsEditing = true
+        vc.sourceType = UIImagePickerControllerSourceType.Camera
+        
+        self.presentViewController(vc, animated: true, completion: nil)
+        
     }
     
     @IBAction func libraryButton(sender: AnyObject) {
@@ -39,13 +48,11 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
         self.presentViewController(vc, animated: true, completion: nil)
     }
     
-    
     @IBAction func uploadButton(sender: AnyObject) {
         let imageText = captionField.text
         
         if imageView.image == nil {
-            //image is not included alert user
-            print("Image not uploaded")
+            print("Please Select and Image")
         }else {
             
             let posts = PFObject(className: "Posts")
@@ -53,9 +60,7 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
             posts["uploader"] = PFUser.currentUser()
             posts.saveInBackgroundWithBlock({
                 (success: Bool, error: NSError?) -> Void in
-                
                 if error == nil {
-                    /**success saving, Now save image.***/
                     
                     //create an image data
                     let imageData = UIImagePNGRepresentation(self.imageView.image!)
@@ -68,29 +73,26 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
                         if error == nil {
                             //take user home
                             print("data uploaded")
-                            self.performSegueWithIdentifier("goHomeFromUpload", sender: self)
+                            self.performSegueWithIdentifier("goHomeSegueFromUpload", sender: self)
                             
                         }else {
                             
-                            print(error)
+                            print(error?.localizedDescription)
                         }
-                        
-                        
                     })
-                    
-                    
                 }else {
-                    print(error)
-                    
+                    print(error?.localizedDescription)
                 }
-                
             })
-            
-            
         }
-        
     }
-    /*
+    
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
+        imageView.image = image
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+        /*
      // MARK: - Navigation
      
      // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -99,5 +101,7 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
      // Pass the selected object to the new view controller.
      }
      */
+    
+    
     
 }
