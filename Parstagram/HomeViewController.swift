@@ -12,7 +12,10 @@ import ParseUI
 import MBProgressHUD
 
 class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate {
+    
     var feedPosts:[PFObject] = []
+    var loadMore: Int = 20
+    var isMoreDataLoading = false
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -46,6 +49,23 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.performSegueWithIdentifier("uploadSegue", sender: self)
     }
     
+    func scrollViewDidScroll(scrollView: UIScrollView) {
+        if (!isMoreDataLoading) {
+            // Calculate the position of one screen length before the bottom of the results
+            let scrollViewContentHeight = tableView.contentSize.height
+            let scrollOffsetThreshold = scrollViewContentHeight - tableView.bounds.size.height
+            
+            // When the user has scrolled past the threshold, start requesting
+            if(scrollView.contentOffset.y > scrollOffsetThreshold && tableView.dragging) {
+                isMoreDataLoading = true
+                
+                // ... Code to load more results ...
+                self.loadMore += 20
+                getPosts()
+            }
+        }
+    }
+    
     func refreshControlAction(refreshControl: UIRefreshControl) {
         getPosts()
         self.tableView.reloadData()
@@ -65,7 +85,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     func getPosts() {
         let query = PFQuery(className: "Post")
         query.addDescendingOrder("createdAt")
-        query.limit = 20
+        query.limit = loadMore
         query.includeKey("author")
         query.findObjectsInBackgroundWithBlock {(objects: [PFObject]?, error: NSError?) -> Void in
             if error == nil {
