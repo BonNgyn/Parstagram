@@ -16,6 +16,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     var feedPosts:[PFObject] = []
     var loadMore: Int = 20
     var isMoreDataLoading = false
+    var loadingMoreView:InfiniteScrollActivityView?
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -23,6 +24,16 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         super.viewDidLoad()
         
         let refreshControl = UIRefreshControl()
+        
+        // Set up Infinite Scroll loading indicator
+        let frame = CGRectMake(0, tableView.contentSize.height, tableView.bounds.size.width, InfiniteScrollActivityView.defaultHeight)
+        loadingMoreView = InfiniteScrollActivityView(frame: frame)
+        loadingMoreView!.hidden = true
+        tableView.addSubview(loadingMoreView!)
+        
+        var insets = tableView.contentInset;
+        insets.bottom += InfiniteScrollActivityView.defaultHeight;
+        tableView.contentInset = insets
         
         tableView.dataSource = self
         tableView.delegate = self
@@ -49,6 +60,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.performSegueWithIdentifier("uploadSegue", sender: self)
     }
     
+    
     func scrollViewDidScroll(scrollView: UIScrollView) {
         if (!isMoreDataLoading) {
             // Calculate the position of one screen length before the bottom of the results
@@ -58,6 +70,11 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             // When the user has scrolled past the threshold, start requesting
             if(scrollView.contentOffset.y > scrollOffsetThreshold && tableView.dragging) {
                 isMoreDataLoading = true
+                
+                // Update position of loadingMoreView, and start loading indicator
+                let frame = CGRectMake(0, tableView.contentSize.height, tableView.bounds.size.width, InfiniteScrollActivityView.defaultHeight)
+                loadingMoreView?.frame = frame
+                loadingMoreView!.startAnimating()
                 
                 // ... Code to load more results ...
                 self.loadMore += 20
@@ -70,14 +87,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         getPosts()
         self.tableView.reloadData()
         
-        // Tell the refreshControl to stop spinning
-        refreshControl.endRefreshing()
-    }
-    
-    func refreshControlGetPosts(refreshControl: UIRefreshControl) {
-        getPosts()
-        // Reload the tableView now that there is new data
-        self.tableView.reloadData()
         // Tell the refreshControl to stop spinning
         refreshControl.endRefreshing()
     }
