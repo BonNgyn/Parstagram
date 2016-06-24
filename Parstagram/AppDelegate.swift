@@ -30,7 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         storyboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle());
         let currentUser = PFUser.currentUser()
         if currentUser != nil {
-            self.window?.rootViewController = storyboard?.instantiateViewControllerWithIdentifier("HomeViewController");
+            self.window?.rootViewController = storyboard?.instantiateViewControllerWithIdentifier("naviController");
         }
         return true
     }

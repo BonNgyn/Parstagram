@@ -54,7 +54,7 @@
                     <connections>
                         <outlet property="passwordField" destination="uoL-WX-6Q5" id="Mg4-sA-UjO"/>
                         <outlet property="usernameField" destination="p76-Sz-x4w" id="bMv-TA-IbQ"/>
-                        <segue destination="Dxp-Dr-tr1" kind="modal" identifier="loginSegue" id="TjT-mO-8EA"/>
+                        <segue destination="An7-pb-Bg8" kind="modal" identifier="loginSegue" id="Vxa-oY-d3K"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -73,19 +73,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bkr-oP-wDs">
-                                <rect key="frame" x="14" y="72" width="48" height="30"/>
-                                <state key="normal" title="Logout"/>
-                                <connections>
-                                    <action selector="logoutButton:" destination="Wjd-5z-HnZ" eventType="touchUpInside" id="OOZ-Ur-vzB"/>
-                                </connections>
-                            </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="430" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="kA0-1t-UrQ">
-                                <rect key="frame" x="0.0" y="103" width="375" height="564"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="myParseCell" rowHeight="430" id="Aj5-Ce-Ktb" customClass="parseCell" customModule="Parstagram" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="430"/>
+                                        <rect key="frame" x="0.0" y="92" width="375" height="430"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Aj5-Ce-Ktb" id="qqr-yz-4LK">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="429.5"/>
@@ -112,6 +105,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="l7q-f7-UiO"/>
                     <navigationItem key="navigationItem" title="Parstagram" id="CG1-xO-hxl">
                         <barButtonItem key="leftBarButtonItem" style="plain" id="Nos-T1-gXL">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Mca-um-bGC">
@@ -137,7 +131,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0hk-y2-x3h" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="670.5" y="1253.5"/>
+            <point key="canvasLocation" x="692.5" y="1253.5"/>
         </scene>
         <!--Upload View Controller-->
         <scene sceneID="Lc0-KR-J0A">
@@ -220,12 +214,60 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x6Z-eJ-Few" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1149.5" y="1258.5"/>
+            <point key="canvasLocation" x="1157.5" y="1253.5"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Item-->
+        <scene sceneID="fxQ-Ea-70c">
+            <objects>
+                <viewController id="kU0-I2-INK" customClass="ProfileViewController" customModule="Parstagram" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="EnY-SZ-PCO"/>
+                        <viewControllerLayoutGuide type="bottom" id="an7-hE-EgF"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="9jQ-lk-Yan">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="HELLO THIS IS PROFILE PAGE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="crB-sF-x3v">
+                                <rect key="frame" x="72" y="268" width="231" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="PUC-eb-4Pu"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cai-pG-Wji" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1572.5" y="1253.5"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="7gY-D8-Thj">
+            <objects>
+                <tabBarController id="An7-pb-Bg8" sceneMemberID="viewController">
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="F7K-bX-CEP">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="Dxp-Dr-tr1" kind="relationship" relationship="viewControllers" id="0eu-fc-9U6"/>
+                        <segue destination="kU0-I2-INK" kind="relationship" relationship="viewControllers" id="UVS-rk-bRY"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cnk-si-rhS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="911.5" y="410.5"/>
+        </scene>
+        <!--Item-->
         <scene sceneID="FaT-zA-Hox">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Dxp-Dr-tr1" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="naviController" automaticallyAdjustsScrollViewInsets="NO" id="Dxp-Dr-tr1" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="PsV-Kq-TPO"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="uJB-qy-coS">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -234,6 +276,7 @@
                     <nil name="viewControllers"/>
                     <connections>
                         <segue destination="Wjd-5z-HnZ" kind="relationship" relationship="rootViewController" id="abx-KU-SMM"/>
+                        <segue destination="Uz2-8l-UpQ" kind="modal" id="OPJ-4H-fzI"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8V7-bZ-447" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -245,6 +288,7 @@
         <image name="default-placeholder.png" width="1500" height="1500"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Dv2-4g-osH"/>
+        <segue reference="0eu-fc-9U6"/>
+        <segue reference="dcr-ZH-CuI"/>
     </inferredMetricsTieBreakers>
 </document>
