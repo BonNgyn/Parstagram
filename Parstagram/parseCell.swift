@@ -7,10 +7,13 @@
 //
 
 import UIKit
+import ParseUI
+import Parse
 
 class parseCell: UITableViewCell {
 
-    @IBOutlet weak var feedImage: UIImageView!
+
+    @IBOutlet weak var feedImage: PFImageView!
     @IBOutlet weak var feedText: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -50,10 +50,23 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
     }
     
     @IBAction func uploadButton(sender: AnyObject) {
-        Post.postUserImage(self.imageView.image!, withCaption: captionField.text) { (success: Bool, error: NSError?) in
+        let image = resize(self.imageView.image!, newSize: CGSize.init(width: 100, height: 100))
+        Post.postUserImage(image, withCaption: captionField.text) { (success: Bool, error: NSError?) in
             print("data uploaded")
             self.performSegueWithIdentifier("homeNaviController", sender: self)
         }
+    }
+    
+    func resize(image: UIImage, newSize: CGSize) -> UIImage {
+        let resizeImageView = UIImageView(frame: CGRectMake(0, 0, newSize.width, newSize.height))
+        resizeImageView.contentMode = UIViewContentMode.ScaleAspectFill
+        resizeImageView.image = image
+        
+        UIGraphicsBeginImageContext(resizeImageView.frame.size)
+        resizeImageView.layer.renderInContext(UIGraphicsGetCurrentContext()!)
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return newImage
     }
     
     func getPFFileFromImage(image: UIImage?) -> PFFile? {
