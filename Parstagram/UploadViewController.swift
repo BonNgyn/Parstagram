@@ -12,12 +12,22 @@ import ParseUI
 
 class UploadViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
+    var initialY: CGFloat!
+    var offSet: CGFloat!
+
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var captionField: UITextField!
+    @IBOutlet weak var fieldParentView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        initialY = fieldParentView.frame.origin.y
+        offSet = -70
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(keyboardWillShow(_:)), name:UIKeyboardWillShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(keyboardWillHide(_:)), name:UIKeyboardWillHideNotification, object: nil)
+
         // Do any additional setup after loading the view.
     }
     
@@ -57,6 +67,10 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
         }
     }
     
+    @IBAction func didTap(sender: AnyObject) {
+        view.endEditing(true)
+    }
+    
     func resize(image: UIImage, newSize: CGSize) -> UIImage {
         let resizeImageView = UIImageView(frame: CGRectMake(0, 0, newSize.width, newSize.height))
         resizeImageView.contentMode = UIViewContentMode.ScaleAspectFill
@@ -87,6 +101,15 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
+    func keyboardWillShow(notification: NSNotification!) {
+//        var frame = notification.userInfo![UIKeyboardFrameEndUserInfoKey]!.CGRectValue().height
+//        frame = (frame * -1)
+        fieldParentView.frame.origin.y = initialY + offSet
+    }
+    
+    func keyboardWillHide(notification: NSNotification!) {
+        fieldParentView.frame.origin.y = initialY
+    }
     /*
      // MARK: - Navigation
      
