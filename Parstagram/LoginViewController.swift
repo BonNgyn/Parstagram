@@ -55,6 +55,7 @@ class LoginViewController: UIViewController {
         
         newUser.username = usernameField.text
         newUser.password = passwordField.text
+        newUser
         
         newUser.signUpInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
             if success {

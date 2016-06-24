@@ -13,4 +13,6 @@ import MBProgressHUD
 
 class ProfileCollectionViewCell: UICollectionViewCell {
     
+    @IBOutlet weak var collectionViewImage: PFImageView!
+    
 }

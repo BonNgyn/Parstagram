@@ -11,10 +11,20 @@ import Parse
 import ParseUI
 import MBProgressHUD
 
-class ProfileViewController: UIViewController {
+class ProfileViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UINavigationControllerDelegate {
 
+    var feedPosts:[PFObject] = []
+    
+    @IBOutlet weak var collectionView: UICollectionView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        collectionView.dataSource = self
+        collectionView.delegate = self
+        getPosts()
+
+        
 
         // Do any additional setup after loading the view.
     }
@@ -24,6 +34,38 @@ class ProfileViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return feedPosts.count
+    }
+    
+    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("myProfileCollectionViewCell", forIndexPath: indexPath) as! ProfileCollectionViewCell
+        
+        let mediaObject = self.feedPosts[indexPath.section]
+        if mediaObject.valueForKey("media") != nil {
+            cell.collectionViewImage.file = mediaObject["media"] as? PFFile
+            cell.collectionViewImage.loadInBackground()
+        }
+        
+        return cell
+    }
+    
+    func getPosts() {
+        let query = PFQuery(className: "Post")
+        query.includeKey("author")
+        query.whereKey("author", equalTo: PFUser())
+        query.findObjectsInBackgroundWithBlock {(objects: [PFObject]?, error: NSError?) -> Void in
+            if error == nil {
+                if let objects = objects {
+                    self.feedPosts = objects
+                    self.collectionView.reloadData()
+                }
+            } else {
+                print(error?.localizedDescription)
+            }
+        }
+    }
+
 
     /*
     // MARK: - Navigation

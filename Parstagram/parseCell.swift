@@ -15,6 +15,8 @@ class parseCell: UITableViewCell {
 
     @IBOutlet weak var feedImage: PFImageView!
     @IBOutlet weak var feedText: UILabel!
+    @IBOutlet weak var feedDate: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

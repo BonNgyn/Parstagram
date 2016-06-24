@@ -53,7 +53,7 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
         let image = resize(self.imageView.image!, newSize: CGSize.init(width: 100, height: 100))
         Post.postUserImage(image, withCaption: captionField.text) { (success: Bool, error: NSError?) in
             print("data uploaded")
-            self.performSegueWithIdentifier("homeNaviController", sender: self)
+            self.performSegueWithIdentifier("backToFeedSegue", sender: self)
         }
     }
     

@@ -15,7 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
     var storyboard : UIStoryboard?
-
+    
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
@@ -30,7 +30,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         storyboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle());
         let currentUser = PFUser.currentUser()
         if currentUser != nil {
-            self.window?.rootViewController = storyboard?.instantiateViewControllerWithIdentifier("naviController");
+            // create view controllers from storyboard
+            // Make sure you set Storyboard ID for both the viewcontrollers in
+            // Interface Builder -> Identitiy Inspector -> Storyboard ID
+            let naviController = storyboard!.instantiateViewControllerWithIdentifier("naviController")
+            let ProfileViewController = storyboard!.instantiateViewControllerWithIdentifier("ProfileViewController")
+            
+            // Set up the Tab Bar Controller to have two tabs
+            let tabBarController = UITabBarController()
+            tabBarController.viewControllers = [naviController, ProfileViewController]
+            
+            self.window?.rootViewController = storyboard?.instantiateViewControllerWithIdentifier("tabBarController");
         }
         return true
     }

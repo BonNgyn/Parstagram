@@ -129,6 +129,34 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         return cell
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if let identifier = segue.identifier {
+            switch identifier {
+                case "detailViewSegue":
+                    let postDetailVC = segue.destinationViewController as! DetailViewController
+                    if let indexPath = self.tableView.indexPathForCell(sender as! UITableViewCell) {
+                        let passedPost = self.feedPosts[indexPath.section]
+                    
+                        //specific post caption
+                        let caption = passedPost.valueForKey("caption") as? String
+                        postDetailVC.detailCaptionSegue = caption!
+                        
+                        //specific post image
+                        let feedImage = passedPost["media"] as? PFFile
+                        postDetailVC.file = feedImage
+                }
+                default: break
+            }
+        }
+    }
+    
+//    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+//        let header = tableView.dequeueReusableHeaderFooterViewWithIdentifier(HeaderViewIdentifier) as UITableViewHeaderFooterView
+//        
+//        header..text = self.feedPosts[section][0]
+//        return header
+//    }
+    
     
     /*
      // MARK: - Navigation
