@@ -108,6 +108,16 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
     }
     
+    //formatting NSDate to a string
+    func dateToString(nsDate: NSDate) -> String {
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateStyle = .MediumStyle
+        dateFormatter.timeStyle = .NoStyle
+        
+        dateFormatter.locale = NSLocale(localeIdentifier: "en_US")
+        return "\(dateFormatter.stringFromDate(nsDate))"
+    }
+    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
@@ -120,14 +130,28 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("myParseCell", forIndexPath: indexPath) as! parseCell
         let postObject = self.feedPosts[indexPath.section]
+        
+        //get caption
         if let myString = postObject.valueForKey("caption") {
+            
+            //assign caption into cell
             cell.feedText.text = myString as? String
+            
+            //assign fetched image to cell
             cell.feedImage.file = postObject["media"] as? PFFile
             cell.feedImage.loadInBackground()
+            
+            //getting date
+            let date = postObject.createdAt
+            cell.feedDate.text = dateToString(date!)
+            
+            
         }
         
         return cell
     }
+    
+    
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let identifier = segue.identifier {
@@ -144,6 +168,12 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                         //specific post image
                         let feedImage = passedPost["media"] as? PFFile
                         postDetailVC.file = feedImage
+                        
+                        //specific post date
+                        let date = dateToString(passedPost.createdAt!)
+                        postDetailVC.detailDateSegue = date
+                        
+
                 }
                 default: break
             }

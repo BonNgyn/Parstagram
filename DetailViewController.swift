@@ -15,6 +15,7 @@ class DetailViewController: UIViewController {
     //models
     var detailCaptionSegue: String = ""
     var detailImageSegue: String = ""
+    var detailDateSegue: String = ""
     internal var file: PFFile?
     var particularPost: PFObject?
     
@@ -31,6 +32,7 @@ class DetailViewController: UIViewController {
         detailImageView.file = file
         detailImageView.loadInBackground()
 
+        detailDateLabel.text = detailDateSegue
 
         
         // Do any additional setup after loading the view.
