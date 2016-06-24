@@ -9,18 +9,24 @@
 import UIKit
 import Parse
 import ParseUI
+import MBProgressHUD
 
 class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate {
     var feedPosts:[PFObject] = []
     
     @IBOutlet weak var tableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let refreshControl = UIRefreshControl()
+        
         tableView.dataSource = self
         tableView.delegate = self
+        
         getPosts()
-        UIRefreshControl().addTarget(self, action: #selector(refreshControlGetPosts(_:)), forControlEvents: UIControlEvents.ValueChanged)
-        tableView.insertSubview(UIRefreshControl(), atIndex: 0)
+        refreshControl.addTarget(self, action: #selector(refreshControlAction(_:)), forControlEvents: UIControlEvents.ValueChanged)
+        tableView.insertSubview(refreshControl, atIndex: 0)
         
         
     }
@@ -40,8 +46,15 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.performSegueWithIdentifier("uploadSegue", sender: self)
     }
     
-    func refreshControlGetPosts(refreshControl: UIRefreshControl)
-    {
+    func refreshControlAction(refreshControl: UIRefreshControl) {
+        getPosts()
+        self.tableView.reloadData()
+        
+        // Tell the refreshControl to stop spinning
+        refreshControl.endRefreshing()
+    }
+    
+    func refreshControlGetPosts(refreshControl: UIRefreshControl) {
         getPosts()
         // Reload the tableView now that there is new data
         self.tableView.reloadData()

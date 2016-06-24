@@ -9,4 +9,5 @@ target 'Parstagram' do
     pod 'Parse'
     pod 'FBSDKCoreKit'
     pod 'ParseUI'
+    pod 'MBProgressHUD'
 end
